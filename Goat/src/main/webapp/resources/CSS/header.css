@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Kakaofont';
+	src: url(KakaoRegular.ttf)
+}
+
+@font-face {
+	font-family: 'Kakaofont_Bold';
+	src: url(KakaoBold.ttf)
+}
+
+@font-face {
+	font-family: 'logofont';
+	src: url(Shrikhand-Regular.ttf)
+}
+
+body {
+	font-family: 'Kakaofont_';
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: rgba(255, 255, 255, 0.9);
+	height: 70px;
+	width: 99%;
+	margin: auto;
+	padding: 10px 10px 10px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+}
+
+header ul>li>a {
+	color: black;
+	text-decoration: none;
+	decoration: none;
+	font-family: 'Kakaofont_Bold';
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+.logo {
+	margin-top: -10px;
+}
+
+.logo>h1>a {
+	margin: 40px;
+	text-decoration: none;
+	color: #2BC0E4;
+	font-family: 'logofont';
+	font-size: 40px;
+}
+
+.logo>p {
+	margin-left: 51px;
+	margin-top: -19px;
+	font-size: 14px;
+	font-family: 'logofont';
+	text-align: left;
+}
+
+header>#category>ul>li>a {
+	margin: 10px;
+}
+
+header ul>li>a:hover {
+	color: #2BC0E4;
+}
+
+
+img {
+	width: 200px; 
+	height: 60px;
+}
+
+input {
+	background-color: lightteal;
+}
+
+.headerbtn_write {
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	width: 80px;
+	padding: 9px;
+	border: 0.5px solid #2BC0E4;
+	background-color: #2BC0E4;
+	border-radius: 50px;
+	font-family: 'Kakaofont';
+}
+
+.headerbtn_write:hover {
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+.headerbtn {
+	color: gray;
+	font-weight: bold;
+	font-size: 12px;
+	width: 80px;
+	padding: 9px;
+	border: 0.5px solid lightgray;
+	background-color: white;
+	border-radius: 50px;
+	font-family: 'Kakaofont';
+}
+
+.headerbtn:hover {
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+.headerbtn_mypage {
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	width: 80px;
+	padding: 10px;
+	border: 0.5px solid #353535;
+	background-color: #353535;
+	border-radius: 50px;
+	font-family: 'Kakaofont';
+}
+
+.headerbtn_mypage:hover {
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+.headerbtn_sign {
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	width: 80px;
+	padding: 10px;
+	border: 0.5px solid #353535;
+	background-color: #353535;
+	border-radius: 50px;
+	font-family: 'Kakaofont';
+}
+
+.headerbtn_sign:hover {
+	cursor: url(../Cursor/paper.png), auto;
+}
+
+header>nav {
+	height: 90px;
+	line-height: 90px;
+}
+
+.headerbtn_message {
+	padding: 0px 0px 3px 0px;
+	width: 35px;
+	height: 35px;
+	font-size: 20px;
+	color: white;
+	background: #96de92;
+	border: 1px solid #96de92;
+	border-radius: 50%;
+}
+
+.headerbtn_message:hover {
+	cursor: pointer;
+}
+
+#category {
+	visibility: visible;
+}
+
+#canav li {
+	display: inline;
+	font-size: 30px;
+	margin: 10px;
+}

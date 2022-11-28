@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+#mypagenav {
+	margin: auto;
+	width: 960px;
+	padding: 20px;
+	list-style-type: none;
+	overflow: hidden;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	border-bottom: 5px solid gray;
+}
+
+.title {
+	background: linear-gradient(to right, #70e1f5, #eaecc6);
+	margin: auto;
+	width: 1000px;
+	height: 120px;
+	line-height: 120px;
+	text-align: center;
+}
+
+#mypagenav li a {
+	display: block;
+	color: black;
+	text-align: center;
+	font-weight: bold;
+	margin-right: 30px;
+}
+
+#mypagenav li a:hover {
+	color: #2BC0E4;
+}
+
+#container {
+	widht: 50px;
+	position: relative;
+	top: 100px;
+	min-height: 800px;
+}
+
+.pw_table {
+	border: 3px solid black;
+	border-radius: 8px;
+	padding: 50px 30px;
+	margin-top: 50px;
+}
+
+.remove {
+	color: red;
+}
+
+td {
+	padding: 10px;
+}
+
+tr:nth-child(1) {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+tr:nth-child(2)>td:nth-child(1) {
+	font-weight: bold;
+	text-align: right;
+}
+
+tr:nth-child(2)>td:nth-child(2)>* {
+	border-radius: 4px;
+	width: 200px;
+	height: 30px;
+	padding-left: 7px;
+}
+
+.btn_div {
+	text-align: center;
+	margin-top: 40px;
+}
+
+table {
+	margin: auto;
+}
+
+.backbtn, .removebtn {
+	color: gray;
+	padding: 10px 15px;
+	margin: 5px;
+	border: 1px solid gray;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 4px;
+}
+
+.removebtn:hover {
+	color: red;
+	border: 2px solid red;
+}
+
+.backbtn:hover {
+	color: #2BC0E4;
+	border: 2px solid #2BC0E4;
+}

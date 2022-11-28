@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.goat.mapper.ManagerMapper">
+	<!-- 멤버 목록 리스트 설계 -->
+	<select id="list" resultType="org.goat.model.MemberVO">
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum, m.*
+		from member m,
+		(select @rownum:=0) as tmp
+		<if test="keyword != null">
+			<choose>
+				<when test="type=='N'.toString()">
+					where name like CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="type=='I'.toString()">
+					where id like CONCAT('%',#{keyword},'%')
+				</when>
+				<otherwise>
+					where nick like CONCAT('%',#{keyword},'%')
+				</otherwise>
+			</choose>
+		</if>
+		) as memberlist
+		<![CDATA[
+			where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
+	</select>
+
+	<!-- 멤버 리스트에서 전체 회원수 조회 -->
+	<select id="total" resultType="integer">
+		select count(*) from member
+		<if test="keyword != null">
+			<choose>
+				<when test="type=='N'.toString()">
+					where name like CONCAT('%',#{keyword},'%')
+				</when>
+				<when test="type=='I'.toString()">
+					where id like CONCAT('%',#{keyword},'%')
+				</when>
+				<otherwise>
+					where nick like CONCAT('%',#{keyword},'%')
+				</otherwise>
+			</choose>
+		</if>
+		;
+	</select>
+	<!-- 멤버 리스트에서 id 검색 -->
+	<!-- <select id="memsearch" resultType="org.goat.model.MemberVO"> select 
+		* from member <if test="id != null"> where id like CONCAT('%',#{id},'%') 
+		</if> </select> -->
+
+	<!-- 멤버 상세 페이지 설계 -->
+	<select id="memdetail" resultType="org.goat.model.MemberVO">
+		select
+		id,name,password,replace(email,',','') as
+		email,addr,memdate,birth,nick,phone from member
+		where id=#{id};
+	</select>
+
+	<!-- 멤버 삭제 설계 -->
+	<delete id="remove">
+		delete from member where id=#{id};
+	</delete>
+
+	<!-- 작성 글 리스트 -->
+	<select id="WriteList" resultType="org.goat.model.BoardVO">
+		select *
+		from(
+		    select @rownum:=@rownum+1 rownum, b.* ,(select count(*) from reple where bno=b.bno) as cntrno
+		    from board b, (select @rownum:=0) as tmp
+		where id=#{id}
+		) as boardlist
+		<![CDATA[
+			where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
+	</select>
+
+	<!-- 작성 글 리스트에서 전체 게시물수 조회 -->
+	<select id="boardtotal" resultType="integer">
+		select count(*)
+		from board
+		where id=#{id};
+	</select>
+
+	<!-- 글 삭제 -->
+	<delete id="bremove">
+		delete from board where bno=#{bno};
+	</delete>
+
+	<!-- 댓글 리스트 -->
+	<select id="RepleList" resultType="org.goat.model.RepleVO">
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum, r.*
+		from reple r,
+		(select @rownum:=0) as tmp
+		where id=#{id}
+		) as replelist
+		<![CDATA[
+			where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
+	</select>
+
+	<!-- 댓글 리스트에서 전체 댓글수 조회 -->
+	<select id="repletotal" resultType="integer">
+		select count(*)
+		from reple
+		where id=#{id};
+	</select>
+
+	<!-- 댓글 삭제 -->
+	<delete id="repleremove">
+		delete from reple where rno=#{rno};
+	</delete>
+
+	<!-- <update id="modify"> update board set tutle='', content='' where bno=#{id}; 
+		</update> -->
+
+</mapper>
+
