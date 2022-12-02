@@ -20,7 +20,7 @@ public class ManagerServiceImpl implements ManagerService {
 	public ArrayList<MemberVO> list(CriteriaVO cri) {
 		return mm.list(cri);
 	}
-	
+
 	// 멤버 리스트에서 전체 회원수 조회
 	public int total(CriteriaVO cri){
 		return mm.total(cri);	

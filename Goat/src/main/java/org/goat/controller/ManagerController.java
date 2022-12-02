@@ -22,7 +22,6 @@ public class ManagerController {
 
     // 멤버  목록 리스트 설계
 	@RequestMapping(value = "manager/manager", method = RequestMethod.GET)
-	// 게시판 목록 리스트
 	public String list (Model model, CriteriaVO cri, Model totalmem) {
 		// manager.jsp 실행 할 때 select 된 결과를 가져와라
 		model.addAttribute("list", ms.list(cri));
