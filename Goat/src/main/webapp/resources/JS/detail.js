@@ -292,7 +292,7 @@ function modifyboard(board){ // 글 수정을 하기 위한 함수 선언
       success: function(result){
          
          if(result=="success"){
-            alert("글이 수정됐습니다");
+            alert("글이 수정되었습니다");
             
             detailList();
             
